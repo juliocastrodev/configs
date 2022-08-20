@@ -1,4 +1,4 @@
-# configs files by @juliocastrodev
+# config files by @juliocastrodev
 
 ## Install
 
