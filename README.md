@@ -1,16 +1,10 @@
-# config files by @juliocastrodev
+# config files by @juliocastrodev 🚀
 
-## Install
+## Installation of Tools 🔍
 
 ### Everywhere
 - [zsh] - Shell
-
-- [zplug] - Plugin manager for [zsh]
-
-  The installation consists of cloning its repository. It's important to do so in `~` with the name `.zplug` because [.zshrc] will use a script from `~/.zplug/`
-
-### MacOS
-- [karabiner] - Keyboard Customization Tool
+- [iterm2] - Terminal (MacOS)
 
 ## Instructions
 - [.p10k.zsh] - Config for [p10k], a theme for [zsh]
@@ -20,30 +14,31 @@
 - [.zshrc] - Config for [zsh]
 
   - It should be saved inside `~` because [zsh] will load it from there.
-  
-  - The **first** time we start [zsh] we need to run this command to install and load the plugins:
 
+- [JulioMacKeysRemapping.plist] - Keybindings for MacOS (US keyboard layout)
+  
+  - It should be saved inside `~/Library/LaunchAgents`
+  - Then we have to run: (only necessary **once**, then it's persisted).
     ```sh
-    zplug install && zplug load
+    launchctl load ~/Library/LaunchAgents/JulioMacKeysRemapping.plist
     ```
-
-- [karabiner.json] - Keybindings
-  
-  - It should be saved inside `~/.config/karabiner/`
-  - It is possible to persist this settings in the MacOS config. This allows to even uninstall [karabiner] afterwards. To do so we have to open the [karabiner] app and go to `Preferences > Misc > System default configuration` and click in the corresponding option.
+    There is a [generator][macKeysRemappingGenerator] site that allow us to easily create new files like this one.
 
 - [iterm2-profile.json] - Iterm2 Settings
 
-  - To load it we have to go to `Preferences > Profiles > Other Actions > Import JSON Profiles` and then select the file.
+  - To load it we have to go to `Settings > Profiles > Other Actions > Import JSON Profiles` and then select the file.
+  
+    This affects mainly: font-size and terminal's window default dimensions.
 
 
 <!-- References -->
 [zsh]: https://www.zsh.org/
 [zplug]: https://github.com/zplug/zplug
-[karabiner]: https://github.com/pqrs-org/Karabiner-Elements
-
+[iterm2]: https://github.com/gnachman/iTerm2
 [p10k]: https://github.com/romkatv/powerlevel10k
-[.zshrc]: .zshrc
+[macKeysRemappingGenerator]: https://github.com/amarsyla/hidutil-key-remapping-generator
+
 [.p10k.zsh]: .p10k.zsh
+[.zshrc]: .zshrc
 [iterm2-profile.json]: iterm2-profile.json
-[karabiner.json]: karabiner.json
+[JulioMacKeysRemapping.plist]: JulioMacKeysRemapping.plist

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>JulioMacKeysRemapping</string>
+    <key>ProgramArguments</key>
+    <array>
+        <string>/usr/bin/hidutil</string>
+        <string>property</string>
+        <string>--set</string>
+        <!-- 
+          Explanation of Remaps:
+          1) non_us_backslash (\) ==> grave_accent_and_tilde
+          This allows to have the ~ symbol in the left corner of the keyboard
+          (left to the key #1 in the numbers row)
+
+          2) fn ==> left_control
+          This allows to have a linux/windows experience by giving some utility
+          (Ctrl key) to the default behavior of the fn key in MacOs...
+         -->
+        <string>{"UserKeyMapping":[
+            {
+              "HIDKeyboardModifierMappingSrc": 0x700000064,
+              "HIDKeyboardModifierMappingDst": 0x700000035
+            },
+            {
+              "HIDKeyboardModifierMappingSrc": 0xFF00000003,
+              "HIDKeyboardModifierMappingDst": 0x7000000E0
+            }
+        ]}</string>
+    </array>
+    <key>RunAtLoad</key>
+    <true/>
+</dict>
+</plist>
