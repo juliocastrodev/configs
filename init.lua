@@ -5,6 +5,8 @@ vim.o.smartindent = true -- syntax aware indentations for newline inserts
 vim.o.tabstop = 2 -- num of space characters per tab
 vim.o.shiftwidth = 2 -- spaces per indentation level
 vim.wo.wrap = false -- avoid wrapping
+vim.opt.nu = true -- show line numbers
+vim.opt.relativenumber = true -- numbers are relative to cursor
 ------------------------------------------------
 
 --- Plugin Manager: lazy.nvim setup ------------
@@ -18,51 +20,51 @@ vim.opt.rtp:prepend(lazypath)
 --- Plugins ------------------------------------
 require("lazy").setup({
   { -- Autoclose {}, (), etc
-    "windwp/nvim-autopairs", 
+    "windwp/nvim-autopairs",
     event = "InsertEnter",
     opts = {}
-  }, 
+  },
   { -- Surround utilities
-    "kylechui/nvim-surround", 
+    "kylechui/nvim-surround",
     version = "*",
     event = "VeryLazy",
     config = function() require("nvim-surround").setup({}) end
-  }, 
+  },
   { -- Theme
-    "loctvl842/monokai-pro.nvim", 
-    config = function() 
+    "loctvl842/monokai-pro.nvim",
+    config = function()
       require("monokai-pro").setup({ filter = "octagon" })
       vim.cmd.colorscheme("monokai-pro")
-    end 
-  }, 
+    end
+  },
   {  -- Fuzzy finder
-    "nvim-telescope/telescope.nvim", 
-    tag = "0.1.5", 
+    "nvim-telescope/telescope.nvim",
+    tag = "0.1.5",
     dependencies = { "nvim-lua/plenary.nvim" },
     config = function()
       local telescope_buildtin = require('telescope.builtin')
       vim.keymap.set('n', '<C-p>', telescope_buildtin.find_files, {})
     end
-  }, 
+  },
   { -- Threesitter (precise syntax highlighting)
-    "nvim-treesitter/nvim-treesitter", 
+    "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
-    config = function () 
+    config = function ()
       local configs = require("nvim-treesitter.configs")
 
       configs.setup({
           ensure_installed = { "lua", "vim", "vimdoc", "query", "typescript", "javascript", "html" },
           sync_install = false,
           highlight = { enable = true },
-          indent = { enable = true },  
+          indent = { enable = true },
         })
     end
-  }, 
+  },
   {  -- LSP (autocompletion, ide features, etc)
     "VonHeikemen/lsp-zero.nvim",
     branch = "v3.x",
     dependencies = {
-      "neovim/nvim-lspconfig", "hrsh7th/cmp-nvim-lsp", "hrsh7th/nvim-cmp", "L3MON4D3/LuaSnip", "williamboman/mason.nvim", "williamboman/mason-lspconfig.nvim" 
+      "neovim/nvim-lspconfig", "hrsh7th/cmp-nvim-lsp", "hrsh7th/nvim-cmp", "L3MON4D3/LuaSnip", "williamboman/mason.nvim", "williamboman/mason-lspconfig.nvim"
     },
     config = function ()
       local lsp_zero = require('lsp-zero')
