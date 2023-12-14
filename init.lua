@@ -1,3 +1,5 @@
+-- nvim Config File by @juliocastrodev
+
 ----- General ----------------------------------
 vim.g.mapleader = " "
 vim.o.expandtab = true -- expand tabs with spaces
@@ -50,14 +52,12 @@ require("lazy").setup({
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
     config = function ()
-      local configs = require("nvim-treesitter.configs")
-
-      configs.setup({
-          ensure_installed = { "lua", "vim", "vimdoc", "query", "typescript", "javascript", "html" },
-          sync_install = false,
-          highlight = { enable = true },
-          indent = { enable = true },
-        })
+      require("nvim-treesitter.configs").setup({
+        auto_install = true,
+        sync_install = false,
+        highlight = { enable = true },
+        indent = { enable = true },
+      })
     end
   },
   {  -- LSP (autocompletion, ide features, etc)
