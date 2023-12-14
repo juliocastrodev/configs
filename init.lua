@@ -17,6 +17,11 @@ vim.opt.rtp:prepend(lazypath)
 
 --- Plugins ------------------------------------
 require("lazy").setup({
+  { -- Autoclose {}, (), etc
+    "windwp/nvim-autopairs", 
+    event = "InsertEnter",
+    opts = {}
+  }, 
   { -- Surround utilities
     "kylechui/nvim-surround", 
     version = "*",
