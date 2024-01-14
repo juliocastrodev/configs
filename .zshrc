@@ -1,7 +1,7 @@
 # .zshrc config file by @juliocastrodev
 
 # --------- Zsh Plugins & Theme
-test -d .zplug || git clone https://github.com/zplug/zplug .zplug ; source ~/.zplug/init.zsh
+test -d ~/.zplug || git clone https://github.com/zplug/zplug ~/.zplug ; source ~/.zplug/init.zsh
 zplug "plugins/git", from:oh-my-zsh
 zplug "zsh-users/zsh-autosuggestions"
 zplug "zdharma/fast-syntax-highlighting"
