@@ -15,12 +15,12 @@
 
   - It should be saved inside `~` because [zsh] will load it from there.
 
-- [JulioMacKeysRemapping.plist] - Keybindings for MacOS (US keyboard layout)
+- [com.local.julioMacKeysRemapping.plist] - Keybindings for MacOS (US keyboard layout)
   
-  - It should be saved inside `~/Library/LaunchAgents`
+  - It should be saved inside `/Library/LaunchDaemons`
   - Then we have to run: (only necessary **once**, then it's persisted).
     ```sh
-    launchctl load ~/Library/LaunchAgents/JulioMacKeysRemapping.plist
+    sudo launchctl load /Library/LaunchDaemons/com.local.julioMacKeysRemapping.plist
     ```
     There is a [generator][macKeysRemappingGenerator] site that allow us to easily create new files like this one.
 
@@ -41,4 +41,4 @@
 [.p10k.zsh]: .p10k.zsh
 [.zshrc]: .zshrc
 [iterm2-profile.json]: iterm2-profile.json
-[JulioMacKeysRemapping.plist]: JulioMacKeysRemapping.plist
+[com.local.julioMacKeysRemapping.plist]: com.local.julioMacKeysRemapping.plist

@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
     <key>Label</key>
-    <string>local.julioMacKeysRemapping</string>
+    <string>com.local.julioMacKeysRemapping</string>
 
     <key>ProgramArguments</key>
     <array>
