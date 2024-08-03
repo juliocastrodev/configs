@@ -15,12 +15,16 @@
 
   - It should be saved inside `~` because [zsh] will load it from there.
 
-- [com.local.julioMacKeysRemapping.plist] - Keybindings for MacOS (US keyboard layout)
-  
-  - It should be saved inside `/Library/LaunchDaemons`
-  - Then we have to run: (only necessary **once**, then it's persisted).
+- [com.local.julioMacKeysRemapping.plist] - Keybindings for MacOS (US keyboard layout), done with an OS [LaunchDaemon][launchDaemon].
+  - It should be saved inside `/Library/LaunchDaemons`.
+  - Then we have to give it specific root permissions and ownership. For that execute:
     ```sh
-    sudo launchctl load /Library/LaunchDaemons/com.local.julioMacKeysRemapping.plist
+    sudo chown root:wheel /Library/LaunchDaemons/com.local.julioMacKeysRemapping.plist
+    sudo chmod 644 /Library/LaunchDaemons/com.local.julioMacKeysRemapping.plist
+    ```
+  - Finally we can start the daemon, which performs the keybindings (only necessary **once**, then it's persisted).
+    ```sh
+    sudo launchctl bootstrap system /Library/LaunchDaemons/com.local.julioMacKeysRemapping.plist
     ```
     There is a [generator][macKeysRemappingGenerator] site that allow us to easily create new files like this one.
 
@@ -37,6 +41,7 @@
 [iterm2]: https://github.com/gnachman/iTerm2
 [p10k]: https://github.com/romkatv/powerlevel10k
 [macKeysRemappingGenerator]: https://github.com/amarsyla/hidutil-key-remapping-generator
+[launchDaemon]: https://developer.apple.com/library/archive/documentation/MacOSX/Conceptual/BPSystemStartup/Chapters/CreatingLaunchdJobs.html
 
 [.p10k.zsh]: .p10k.zsh
 [.zshrc]: .zshrc
