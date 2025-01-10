@@ -26,6 +26,8 @@
     ```sh
     sudo launchctl bootstrap system /Library/LaunchDaemons/com.local.julioMacKeysRemapping.plist
     ```
+    It's possible that, depending on the OS version, it's necessary to add `hidutil` to: Settings -> Privacy & Security -> Input Monitoring.
+
     There is a [generator][macKeysRemappingGenerator] site that allow us to easily create new files like this one.
 
 - [iterm2-profile.json] - Iterm2 Settings
