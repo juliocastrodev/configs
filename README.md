@@ -16,6 +16,7 @@
   - It should be saved inside `~` because [zsh] will load it from there.
 
 - [com.local.julioMacKeysRemapping.plist] - Keybindings for MacOS (US keyboard layout), done with an OS [LaunchDaemon][launchDaemon].
+  - There is a [generator][macKeysRemappingGenerator] site that allow us to easily create new files like this one.
   - It should be saved inside `/Library/LaunchDaemons`.
   - Then we have to give it specific root permissions and ownership. For that execute:
     ```sh
@@ -26,9 +27,10 @@
     ```sh
     sudo launchctl bootstrap system /Library/LaunchDaemons/com.local.julioMacKeysRemapping.plist
     ```
-    It's possible that, depending on the OS version, it's necessary to add `hidutil` to: Settings -> Privacy & Security -> Input Monitoring.
+    It's possible that, depending on the OS version, it's necessary to add `hidutil` to Input Monitoring. First, find the
+    binary location by running `which hidutil`. Then, go to `Settings -> Privacy & Security -> Input Monitoring`, you can
+    press `Command + Shift + g` while in the file explorer to specify the binary location that we previously found.
 
-    There is a [generator][macKeysRemappingGenerator] site that allow us to easily create new files like this one.
 
 - [iterm2-profile.json] - Iterm2 Settings
 
