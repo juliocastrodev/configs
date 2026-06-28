@@ -14,4 +14,7 @@ zplug check || zplug install ; zplug load
 alias ls='ls --color'
 alias vim=nvim
 alias copy=pbcopy # MacOS
+alias intellij="open -na 'IntelliJ IDEA' --args"
+alias git-gone="git fetch -p && git branch -vv | grep ': gone]' | awk '{print \$1}' | xargs -r git branch -D"
+alias git-switch="git branch | fzf | xargs git checkout"
 # --------- 
